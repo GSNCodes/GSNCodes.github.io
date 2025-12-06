@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sowmiya Narayanan Govindaraj</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Reduce caching issues on GitHub Pages -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
 </head>
 <body>
 
@@ -27,38 +32,44 @@
 <section class="hero sa-up">
   <img src="assets/profile.jpg" class="hero-img" alt="Profile photo">
   <h1>Sowmiya Narayanan Govindaraj</h1>
-  <p>Machine Learning · Perception · Robotics · Embodied AI</p>
+  <p>3D Perception · Robotics · Embodied AI</p>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="sa-up sa-delay-1">
   <h2>About Me</h2>
-
   <p>
-    I am a Computer Vision and Robotics Engineer working on 3D scene understanding, multi-sensor fusion, and embodied AI for autonomous systems. My work spans unified BEV architectures, depth and occupancy prediction, generative geometric priors, and efficient real-time perception models for robots.
+    I am a machine learning and robotics engineer working at the intersection of 
+    <b>3D perception</b>, <b>multi-sensor fusion</b>, and <b>embodied AI</b>. My work focuses on building 
+    unified representations for real-time scene understanding, depth and occupancy modeling, and 
+    uncertainty-aware fusion for autonomous systems.
   </p>
-
   <p>
-    I’m broadly motivated by the question: <i>How can we give robots the ability to perceive, reason, and act in complex physical environments?</i>
+    I am broadly motivated by the question: 
+    <i>How can we design embodied systems that learn, perceive, and act robustly in complex, 
+    unstructured environments?</i> 
+    This interest has led me to research in simulation-to-real transfer, generative geometric priors, 
+    visuomotor learning, and scalable evaluation pipelines for long-horizon autonomy.
   </p>
-
   <p>
-    My research interests include embodied world models, geometry-aware learning, visuomotor policies, and multimodal robot perception that integrates vision, language, and action. I aim to build systems that move beyond passive perception toward grounded, interactive intelligence capable of robust autonomy.
+    Beyond core perception research, I actively work on open-source robotics projects in teleoperation, 
+    navigation, and multi-modal reasoning, with a long-term goal of developing 
+    <b>general-purpose embodied intelligence systems</b>.
   </p>
 </section>
 
-<!-- EXPERIENCE -->
+
 <section id="experience">
   <h2 class="sa-up">Experience</h2>
 
-  <div class="timeline">
+  <div class="timeline sa-up">
 
     <div class="timeline-item sa-up sa-delay-1">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
-        <h3>Motional AD Inc</h3>
+        <h3>Motional</h3>
         <h4 class="exp-title">Senior Machine Learning Engineer</h4>
-        <p>Unified multi-modal perception modeling and scenario-driven evaluation pipelines.</p>
+        <!-- <p>Unified multi-modal perception modeling and scenario-driven evaluation pipelines.</p> -->
       </div>
     </div>
 
@@ -67,36 +78,64 @@
       <div class="timeline-content">
         <h3>Torc Robotics</h3>
         <h4 class="exp-title">Machine Learning Engineer II</h4>
-        <p>Depth prediction, LiDAR–camera fusion, and TensorRT/ONNX inference optimization.</p>
+        <!-- <p>Depth prediction, LiDAR–camera fusion, and TensorRT/ONNX optimization.</p> -->
       </div>
     </div>
 
     <div class="timeline-item sa-up sa-delay-3">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
-        <h3>Dell EMC R&D</h3>
+        <h3>Dell EMC</h3>
         <h4 class="exp-title">Software Engineer I</h4>
-        <p>Network protocol optimization and design of high-coverage automation frameworks.</p>
-      </div>
-    </div>
-
-    <div class="timeline-item sa-up sa-delay-4">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <h3>Research & Internships</h3>
-        <h4 class="exp-title">ADAS · Robotics · Vision · ML</h4>
-        <p>Robotics perception, ADAS systems, RLHF for manipulation, and generative modeling for imaging.</p>
+        <!-- <p>Network protocol optimization and design of high-coverage automation frameworks.</p> -->
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- EDUCATION -->
+<section id="internships">
+  <h2 class="sa-up">Internships</h2>
+
+  <div class="timeline sa-up">
+
+    <!-- VSI Labs Internship -->
+    <div class="timeline-item sa-up sa-delay-1">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>VSI Labs – ADAS Research</h3>
+        <h4 class="exp-title">ADAS Software Intern</h4>
+        <!-- <p>
+          Optimized lane and road-boundary detection modules for embedded deployment, achieving 
+          real-time performance improvements. Developed camera–LiDAR fusion pipelines in ROS2 to 
+          improve perception robustness under adverse-weather conditions.
+        </p> -->
+      </div>
+    </div>
+
+    <!-- CMU NREC Internship -->
+    <div class="timeline-item sa-up sa-delay-2">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>Carnegie Mellon University – NREC</h3>
+        <h4 class="exp-title">Machine Learning Software Intern</h4>
+        <!-- <p>
+          Contributed to perception systems for an autonomous agricultural robot as part of the 
+          Deere QUAIL program. Developed segmentation and depth-estimation training pipelines and 
+          contributed ~2000 LOC to the production perception stack.
+        </p> -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <section id="education">
   <h2 class="sa-up">Education</h2>
 
-  <div class="timeline">
+  <!-- ADD sa-up HERE TOO -->
+  <div class="timeline sa-up">
 
     <div class="timeline-item sa-up sa-delay-1">
       <div class="timeline-dot"></div>
@@ -109,8 +148,40 @@
     <div class="timeline-item sa-up sa-delay-2">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
-        <h3>SVCE – Anna University</h3>
+        <h3>SVCE - Anna University</h3>
         <h4 class="exp-title">B.E. in Electrical and Electronics Engineering</h4>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="research">
+  <h2 class="sa-up">Research Experience</h2>
+
+  <div class="timeline sa-up">
+
+    <div class="timeline-item sa-up sa-delay-1">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>University of Minnesota – Distributed Robotics Laboratory</h3>
+        <h4 class="exp-title">Research Assistant</h4>
+        <!-- <p>
+         Built a robot–human hand imitation-learning module (RLHF) for Kinova Gen3, enabling fine-grained manipulation learning.
+         Improved hand-following and block-pushing policy performance using expert demonstrations and iterative refinement.
+        </p> -->
+      </div>
+    </div>
+
+    <div class="timeline-item sa-up sa-delay-1">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h3>IIT Madras – IPCV Lab</h3>
+        <h4 class="exp-title">Computer Vision Research Associate</h4>
+        <!-- <p>
+          Worked on edge-aware monocular depth estimation, motion deblurring, and geometry-preserving 
+          image reconstruction under adverse conditions, supervised by Prof. A. N. Rajagopalan.
+        </p> -->
       </div>
     </div>
 
@@ -137,7 +208,7 @@
 
   <div class="card-grid">
 
-    <!-- Robotics / Embodied Projects -->
+    <!-- PackBot -->
     <div class="card card-large sa-up sa-delay-1">
       <h4>PackBot – Indoor Delivery Robot</h4>
       <a class="proj-icon"
@@ -150,6 +221,7 @@
       </a>
     </div>
 
+    <!-- ArUCo -->
     <div class="card card-large sa-up sa-delay-2">
       <h4>Pose Estimation & Camera Calibration Using ArUCo Markers</h4>
       <a class="proj-icon"
@@ -162,7 +234,7 @@
       </a>
     </div>
 
-    <!-- Perception / CV -->
+    <!-- Generative Lanes -->
     <div class="card card-large sa-up sa-delay-3">
       <h4>Generative Lane Marker Segmentation</h4>
       <a class="proj-icon"
@@ -175,7 +247,7 @@
       </a>
     </div>
 
-    <!-- ML / Representation Learning -->
+    <!-- DDPM -->
     <div class="card card-large sa-up sa-delay-1">
       <h4>DDPM (Diffusion Models)</h4>
       <a class="proj-icon"
@@ -188,6 +260,7 @@
       </a>
     </div>
 
+    <!-- SimCLR -->
     <div class="card card-large sa-up sa-delay-2">
       <h4>SimCLR for Point Clouds</h4>
       <a class="proj-icon"
@@ -207,7 +280,9 @@
 <section id="patents" class="sa-up sa-delay-1">
   <h2>Patents</h2>
   <ul>
-    <li><b>Cross-Modal Redundancy Consistency</b> — framework for redundancy-aware multi-sensor prediction.</li>
+    <li><b>Depth-Based Recognition and Tracking System</b> — India Patent No. 495347  
+    <br>A patented method for detecting and tracking predefined physical structures using geometric depth cues for improved robustness in real-world environments.</li>
+
   </ul>
 </section>
 

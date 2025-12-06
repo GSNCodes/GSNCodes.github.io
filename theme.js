@@ -1,59 +1,72 @@
-// THEME TOGGLE (dark mode default)
-const toggleBtn = document.getElementById("toggleTheme");
-const root = document.documentElement;
+// Theme toggle, scroll animations, and back-to-top logic
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const toggleBtn = document.getElementById("toggleTheme");
+  const backToTopBtn = document.getElementById("backToTop");
 
-function updateThemeButton() {
-  const theme = root.getAttribute("data-theme");
-  toggleBtn.textContent = theme === "dark" ? "🌞" : "🌙";
-  toggleBtn.setAttribute(
-    "aria-label",
-    theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
-  );
-}
+  // -------- THEME TOGGLE --------
+  const storedTheme = localStorage.getItem("theme");
+  let currentTheme =
+    storedTheme === "light" || storedTheme === "dark"
+      ? storedTheme
+      : (root.getAttribute("data-theme") || "dark");
 
-// Initial setup (dark by default, as in HTML)
-updateThemeButton();
+  applyTheme(currentTheme);
 
-toggleBtn.addEventListener("click", () => {
-  const current = root.getAttribute("data-theme") || "dark";
-  const next = current === "dark" ? "light" : "dark";
-  root.setAttribute("data-theme", next);
-  updateThemeButton();
-});
-
-// BACK TO TOP BUTTON
-const backToTop = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backToTop.style.display = "flex";
-  } else {
-    backToTop.style.display = "none";
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      applyTheme(currentTheme);
+    });
   }
-});
 
-backToTop.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    if (toggleBtn) {
+      toggleBtn.textContent = theme === "dark" ? "🌞" : "🌙";
+    }
+  }
 
-// SCROLL ANIMATION OBSERVER (trigger once)
-const saElements = document.querySelectorAll(".sa-up, .sa-fade");
+  // -------- SCROLL ANIMATIONS (fade-only) --------
+  const animatedEls = document.querySelectorAll(".sa-up, .sa-fade");
 
-saElements.forEach((el) => {
-  el.classList.add("sa-init");
-});
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("sa-show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
 
-const saObserver = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("sa-show");
-        entry.target.classList.remove("sa-init");
-        observer.unobserve(entry.target);
+    animatedEls.forEach((el) => observer.observe(el));
+  } else {
+    // Fallback: just show all
+    animatedEls.forEach((el) => el.classList.add("sa-show"));
+  }
+
+  // -------- BACK TO TOP BUTTON --------
+  if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 250) {
+        backToTopBtn.style.display = "block";
+      } else {
+        backToTopBtn.style.display = "none";
       }
     });
-  },
-  { threshold: 0.15 }
-);
 
-saElements.forEach((el) => saObserver.observe(el));
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
+});

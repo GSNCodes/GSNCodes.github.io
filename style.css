@@ -450,6 +450,12 @@ h2 {
 
 /* MOBILE FIXES */
 @media (max-width: 780px) {
+
+  .navbar {
+    padding-top: calc(env(safe-area-inset-top) + 14px);
+    height: auto; /* prevents overlap when padding increases */
+  }
+  
   .timeline {
     padding-left: 32px;
   }
@@ -465,4 +471,5 @@ h2 {
   .timeline-content {
     margin-left: 10px;
   }
+  
 }

@@ -409,7 +409,14 @@ h2 {
   box-shadow: 0 10px 25px var(--shadow);
   transition: background 0.25s ease;
   z-index: 50;
+
+  /* FIXES CHROME ALIGNMENT */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0 !important;
 }
+
 
 #backToTop:hover {
   background: var(--accent-hover);

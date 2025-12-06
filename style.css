@@ -76,6 +76,7 @@ h2 {
   border-bottom: 1px solid var(--card-border);
   z-index: 999;
   backdrop-filter: blur(12px);
+  padding-top: calc(env(safe-area-inset-top) + 8px);
 }
 
 .nav-left {

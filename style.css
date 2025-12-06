@@ -1,0 +1,427 @@
+/* =========================================================
+   THEME COLORS
+   ========================================================= */
+
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --text-dim: #666;
+  --accent: #2997ff;
+  --accent-hover: #0079e6;
+  --card: #f4f5f7;
+  --card-border: #e5e6eb;
+  --shadow: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] {
+  --bg: #050509;
+  --text: #f0f2f6;
+  --text-dim: #9ea2b0;
+  --accent: #4ea1ff;
+  --accent-hover: #1b7bd8;
+  --card: #0d0f16;
+  --card-border: #1d1f2a;
+  --shadow: rgba(0, 0, 0, 0.55);
+}
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+section:not(.hero) {
+  padding-top: 28px;
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 26px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--card-border);
+  z-index: 999;
+  backdrop-filter: blur(12px);
+}
+
+.nav-left {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 0.93rem;
+  font-weight: 600;
+  position: relative;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.toggle-btn {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 7px 12px;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background: var(--accent-hover);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  margin-top: 110px;
+  text-align: center;
+  padding: 30px 20px 20px;
+}
+
+.hero-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  object-fit: cover;
+  box-shadow: 0 6px 20px var(--shadow);
+}
+
+.hero h1 {
+  margin: 16px 0 8px;
+  font-size: 2.2rem;
+  letter-spacing: -0.4px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+#about p {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+#about {
+  padding-top: 5px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+/* =========================================================
+   TIMELINE (Experience + Education)
+   ========================================================= */
+
+.timeline {
+  border-left: 2px solid var(--accent);
+  padding-left: 32px;
+  margin-top: 25px;
+  position: relative;
+}
+
+.timeline-item {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: absolute;
+  left: -9px;
+  top: 6px;
+  box-shadow: 0 0 0 3px var(--accent-hover);
+  z-index: 2;
+}
+
+.timeline-content {
+  background: var(--card);
+  padding: 16px 22px 16px 26px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 3px 12px var(--shadow);
+  position: relative;
+  z-index: 1;
+  transition: transform 160ms ease, box-shadow 200ms ease;
+}
+
+/* Hover motion avoids the dot */
+.timeline-content:hover {
+  transform: translate(6px, -4px);
+  box-shadow: 0 10px 28px var(--shadow);
+}
+
+.exp-title {
+  margin: 6px 0 10px;
+  font-size: 1rem;
+  opacity: 0.85;
+  font-weight: 600;
+}
+
+/* =========================================================
+   RESEARCH CARDS + PROJECT CARDS
+   ========================================================= */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 3px 12px var(--shadow);
+}
+
+.card-large {
+  position: relative;
+  padding-bottom: 52px;
+}
+
+.card-large h4 {
+  text-align: center;
+  margin: 0 0 12px;
+  font-size: 1.12rem;
+}
+
+/* Bottom-centered GitHub icon */
+
+.proj-icon {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.85;
+  transition: opacity 170ms ease, transform 170ms ease;
+}
+
+.proj-icon:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.proj-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text);
+}
+
+/* Project tile hover */
+.card-large:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px var(--shadow);
+}
+
+/* =========================================================
+   CONTACT CARDS
+   ========================================================= */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.contact-card {
+  text-decoration: none;
+  background: var(--card);
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: transform 200ms ease, box-shadow 250ms ease, border 200ms ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, var(--accent-hover), transparent);
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+.contact-card:hover::before {
+  opacity: 0.12;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px var(--shadow);
+  border-color: var(--accent);
+}
+
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  transition: transform 180ms ease;
+}
+
+.contact-card:hover .contact-icon {
+  transform: scale(1.08);
+}
+
+.contact-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+}
+
+/* FIX — tighten spacing between title & link */
+.contact-body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.contact-body p {
+  margin: 2px 0 0;
+  opacity: 0.85;
+  font-size: 0.92rem;
+}
+
+/* =========================================================
+   BACK TO TOP BUTTON
+   ========================================================= */
+
+#backToTop {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 10px 25px var(--shadow);
+  transition: background 0.25s ease;
+}
+
+#backToTop:hover {
+  background: var(--accent-hover);
+}
+
+/* =========================================================
+   SCROLL ANIMATION (fade-only, 0.7s)
+   ========================================================= */
+
+.sa-up,
+.sa-fade {
+  opacity: 0;
+}
+
+.sa-show {
+  opacity: 1;
+  transition: opacity 0.7s ease-out;
+}
+
+/* Animation delays */
+.sa-delay-1 { transition-delay: 0.1s !important; }
+.sa-delay-2 { transition-delay: 0.2s !important; }
+.sa-delay-3 { transition-delay: 0.3s !important; }
+.sa-delay-4 { transition-delay: 0.4s !important; }
+.sa-delay-5 { transition-delay: 0.5s !important; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 780px) {
+  .nav-links {
+    display: none;
+  }
+
+  .timeline {
+    padding-left: 26px;
+  }
+
+  .timeline-dot {
+    left: -12px;
+  }
+}
